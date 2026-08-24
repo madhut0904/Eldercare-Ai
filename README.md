@@ -88,6 +88,7 @@ Open [http://localhost:5175](http://localhost:5175) (or assigned port) in your b
 
 ---
 
-## 📄 License & Hackathon Demonstration
+## 📄ElderCare AI
 
-Built for hackathon demonstration. Designed with precision, accessibility, and loving healthcare UX.
+A New Innovation in Elderly Healthcare, Built by Madhu.
+The final product should feel like an original innovative healthcare solution created by Madhu, not a generic healthcare template.
