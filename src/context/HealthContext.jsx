@@ -1,5 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { INITIAL_HEALTH_DATA, DEMO_SCENARIOS, INITIAL_ALERTS } from '../data/mockHealthData';
+import { 
+  INITIAL_HEALTH_DATA, 
+  DEMO_SCENARIOS, 
+  INITIAL_ALERTS, 
+  DOCTOR_METRICS, 
+  MOCK_PATIENTS_TABLE, 
+  MOCK_DOCTOR_ALERTS, 
+  INITIAL_PATIENT_NOTES 
+} from '../data/mockHealthData';
 
 const HealthContext = createContext(null);
 
@@ -11,7 +19,74 @@ export const HealthProvider = ({ children }) => {
   const [alerts, setAlerts] = useState(INITIAL_ALERTS);
   const [liveTicking, setLiveTicking] = useState(true);
 
-  // Switch demo scenarios
+  // Auth & Role State backed by localStorage
+  const [role, setRole] = useState(() => localStorage.getItem("role") || null);
+
+  // Global Theme State: 'light' (default) | 'dark'
+  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === "light" ? "dark" : "light"));
+  };
+
+
+  // Doctor Dataset State
+  const [doctorMetrics, setDoctorMetrics] = useState(DOCTOR_METRICS);
+  const [patientsTable, setPatientsTable] = useState(MOCK_PATIENTS_TABLE);
+  const [doctorAlerts, setDoctorAlerts] = useState(MOCK_DOCTOR_ALERTS);
+  const [patientNotes, setPatientNotes] = useState(INITIAL_PATIENT_NOTES);
+
+  const updatePatientProfile = (updatedProfile) => {
+    setHealthData(prev => ({
+      ...prev,
+      patient: {
+        ...prev.patient,
+        ...updatedProfile
+      }
+    }));
+    setPatientsTable(prev => prev.map((p, idx) => idx === 0 ? { ...p, ...updatedProfile } : p));
+  };
+
+  const updateDoctorProfile = (updatedDoctor) => {
+    setDoctorMetrics(prev => ({
+      ...prev,
+      ...updatedDoctor
+    }));
+  };
+
+
+  const loginAsPatient = () => {
+    localStorage.setItem("role", "patient");
+    setRole("patient");
+  };
+
+  const loginAsDoctor = () => {
+    localStorage.setItem("role", "doctor");
+    setRole("doctor");
+  };
+
+  const logout = () => {
+    localStorage.removeItem("role");
+    setRole(null);
+  };
+
+  const saveDoctorNote = (patientId, noteText) => {
+    setPatientNotes(prev => ({
+      ...prev,
+      [patientId]: noteText
+    }));
+  };
+
+  // Switch demo scenarios for patient
   const setDemoScenario = (scenarioKey) => {
     const preset = DEMO_SCENARIOS[scenarioKey];
     if (!preset) return;
@@ -21,7 +96,6 @@ export const HealthProvider = ({ children }) => {
 
     if (preset.isEmergency) {
       setIsEmergencyModalOpen(true);
-      // Add emergency event to alerts list
       const emergencyAlert = {
         id: Date.now(),
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
@@ -81,25 +155,22 @@ export const HealthProvider = ({ children }) => {
     }));
   };
 
-  // Trigger manual Emergency simulation
   const triggerEmergency = () => {
     setDemoScenario('emergency');
   };
 
-  // Dismiss emergency back to normal
   const dismissEmergency = () => {
     setIsEmergencyActive(false);
     setIsEmergencyModalOpen(false);
     setDemoScenario('normal');
   };
 
-  // Live heart rate micro-jitter simulator to make dashboard feel alive
+  // Live heart rate micro-jitter
   useEffect(() => {
     if (!liveTicking) return;
 
     const interval = setInterval(() => {
       setHealthData(prev => {
-        // Minor jitter of heart rate +-1 bpm
         const delta = Math.random() > 0.5 ? 1 : -1;
         const currentHR = prev.vitals.heartRate.current;
         const newHR = Math.max(55, Math.min(140, currentHR + delta));
@@ -133,12 +204,28 @@ export const HealthProvider = ({ children }) => {
       alerts,
       setAlerts,
       liveTicking,
-      setLiveTicking
+      setLiveTicking,
+      role,
+      setRole,
+      loginAsPatient,
+      loginAsDoctor,
+      logout,
+      doctorMetrics,
+      patientsTable,
+      doctorAlerts,
+      patientNotes,
+      saveDoctorNote,
+      theme,
+      setTheme,
+      toggleTheme,
+      updatePatientProfile,
+      updateDoctorProfile
     }}>
       {children}
     </HealthContext.Provider>
   );
 };
+
 
 export const useHealth = () => {
   const context = useContext(HealthContext);
@@ -147,3 +234,4 @@ export const useHealth = () => {
   }
   return context;
 };
+

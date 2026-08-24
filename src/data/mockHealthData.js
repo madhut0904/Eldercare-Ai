@@ -283,3 +283,150 @@ export const CARE_NETWORK = [
     isAvailable: true
   }
 ];
+
+// Doctor Summary Metrics
+export const DOCTOR_METRICS = {
+  totalPatients: 128,
+  stable: 104,
+  needsAttention: 18,
+  critical: 6,
+  doctorName: "Dr. Ananya Sharma",
+  specialty: "Cardiology & Geriatric Medicine"
+};
+
+// Doctor Patients Table Dataset
+export const MOCK_PATIENTS_TABLE = [
+  {
+    id: "elder-1",
+    name: "Ramesh Kumar",
+    age: 68,
+    heartRate: "72 BPM",
+    heartRateNum: 72,
+    spo2: "97%",
+    spo2Num: 97,
+    bp: "120/80",
+    temp: "36.7°C",
+    healthScore: 82,
+    risk: "Low",
+    riskCategory: "low",
+    statusBadge: "🟢 Low",
+    lastUpdated: "2 min ago",
+    condition: "Mild Hypertension & Age-related Arrhythmia",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200",
+    detectedPatterns: [
+      "Stable heart rate",
+      "Normal SpO₂",
+      "Normal temperature",
+      "Normal activity"
+    ]
+  },
+  {
+    id: "elder-2",
+    name: "Lakshmi Devi",
+    age: 71,
+    heartRate: "102 BPM",
+    heartRateNum: 102,
+    spo2: "94%",
+    spo2Num: 94,
+    bp: "138/88",
+    temp: "37.4°C",
+    healthScore: 64,
+    risk: "Moderate",
+    riskCategory: "moderate",
+    statusBadge: "🟡 Moderate",
+    lastUpdated: "5 min ago",
+    condition: "Resting Tachycardia & Oxygen Saturation Fluctuation",
+    avatar: "https://images.unsplash.com/photo-1566616213894-269115ecf328?auto=format&fit=crop&q=80&w=200",
+    detectedPatterns: [
+      "Resting heart rate > 100 BPM for 25 mins",
+      "Mild SpO₂ dip to 94%",
+      "Slightly reduced physical mobility",
+      "Elevated evening systolic pressure"
+    ]
+  },
+  {
+    id: "elder-3",
+    name: "Suresh Rao",
+    age: 74,
+    heartRate: "126 BPM",
+    heartRateNum: 126,
+    spo2: "89%",
+    spo2Num: 89,
+    bp: "158/96",
+    temp: "38.2°C",
+    healthScore: 35,
+    risk: "High",
+    riskCategory: "high",
+    statusBadge: "🔴 High",
+    lastUpdated: "1 min ago",
+    condition: "Acute Hypoxemia & Sudden Tachycardia / Fall Event",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+    detectedPatterns: [
+      "CRITICAL: SpO₂ dropped to 89%",
+      "CRITICAL: Heart rate elevated to 126 BPM",
+      "Sustained thermal elevation (38.2°C)",
+      "High impact movement recorded"
+    ]
+  },
+  {
+    id: "elder-4",
+    name: "Meena Rao",
+    age: 69,
+    heartRate: "68 BPM",
+    heartRateNum: 68,
+    spo2: "99%",
+    spo2Num: 99,
+    bp: "118/76",
+    temp: "36.5°C",
+    healthScore: 91,
+    risk: "Low",
+    riskCategory: "low",
+    statusBadge: "🟢 Low",
+    lastUpdated: "8 min ago",
+    condition: "Routine Post-Op Telemetry & Joint Recovery",
+    avatar: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=200",
+    detectedPatterns: [
+      "Optimal cardiac rhythm",
+      "Excellent oxygen saturation (99%)",
+      "Consistent activity pace",
+      "Normal temperature"
+    ]
+  }
+];
+
+// Doctor Alerts Feed
+export const MOCK_DOCTOR_ALERTS = [
+  {
+    id: "alert-1",
+    level: "HIGH RISK",
+    riskCategory: "high",
+    patientId: "elder-3",
+    patientName: "Suresh Rao",
+    age: 74,
+    description: "SpO₂ dropped to 89% • Heart rate increased to 126 BPM",
+    timeAgo: "1 minute ago",
+    vitalsSummary: "HR: 126 BPM | SpO₂: 89% | BP: 158/96",
+    location: "Home — Living Room"
+  },
+  {
+    id: "alert-2",
+    level: "MODERATE RISK",
+    riskCategory: "moderate",
+    patientId: "elder-2",
+    patientName: "Lakshmi Devi",
+    age: 71,
+    description: "Heart rate continuously increasing over 25 minutes (102 BPM).",
+    timeAgo: "5 minutes ago",
+    vitalsSummary: "HR: 102 BPM | SpO₂: 94% | BP: 138/88",
+    location: "Bed 302 — East Wing"
+  }
+];
+
+// Default Doctor Notes Map
+export const INITIAL_PATIENT_NOTES = {
+  "elder-1": "Patient showing steady recovery. Advised morning 20-min walking and hydration.",
+  "elder-2": "Increased monitoring interval to every 5 minutes. Check SpO2 sensor placement.",
+  "elder-3": "🚨 URGENT: Oxygen concentrator verification requested. Family notified.",
+  "elder-4": "Routine progress optimal. Continue current prescription."
+};
+

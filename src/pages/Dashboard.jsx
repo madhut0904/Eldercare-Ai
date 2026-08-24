@@ -18,16 +18,16 @@ export default function Dashboard() {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="space-y-8"
+      className="p-4 md:p-8 max-w-7xl mx-auto space-y-8"
     >
       {/* Welcome Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 card-shadow">
         <div>
           <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900">
-            Good Evening 👋
+            Good Evening, Ramesh 👋
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Here's your health overview for <span className="font-bold text-slate-800">{patient.name}</span> today.
+            Here's your health overview for today.
           </p>
         </div>
 
@@ -38,6 +38,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
 
       {/* Top Grid: Health Score Card (1 col) + 5 Vitals Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
