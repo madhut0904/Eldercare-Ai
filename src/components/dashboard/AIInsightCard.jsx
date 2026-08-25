@@ -16,7 +16,7 @@ export default function AIInsightCard() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden flex flex-col justify-between">
+    <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden flex flex-col justify-between border border-indigo-900/50 dark:border-slate-800">
       {/* Subtle glowing light shapes */}
       <div className="absolute -top-10 -right-10 w-44 h-44 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -73,7 +73,7 @@ export default function AIInsightCard() {
         </div>
 
         <Link
-          to="/ai-analysis"
+          to="/patient/ai-health"
           className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white text-xs font-extrabold shadow-lg shadow-emerald-500/25 transition-all text-center group"
         >
           <span>View Detailed Analysis</span>

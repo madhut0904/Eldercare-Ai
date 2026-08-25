@@ -53,19 +53,19 @@ export default function Emergency() {
       
       {/* Header */}
       <div className="text-center space-y-2">
-        <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-rose-500/10 text-rose-600 border border-rose-500/20 inline-flex items-center gap-1.5">
-          <Siren className="w-4 h-4 animate-bounce text-rose-600" /> Emergency Response System
+        <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 inline-flex items-center gap-1.5">
+          <Siren className="w-4 h-4 animate-bounce text-rose-600 dark:text-rose-400" /> Emergency Response System
         </span>
-        <h1 className="font-heading font-black text-3xl sm:text-4xl text-slate-900">
+        <h1 className="font-heading font-black text-3xl sm:text-4xl text-slate-900 dark:text-white">
           Elder Emergency SOS Center
         </h1>
-        <p className="text-slate-500 text-xs sm:text-sm max-w-lg mx-auto">
+        <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm max-w-lg mx-auto">
           Single clicks are protected against accidental activation. Press and hold the emergency button for 2 seconds to signal guardians and doctor.
         </p>
       </div>
 
       {/* Main SOS Trigger Container */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-12 shadow-xl text-center space-y-8 relative overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-8 sm:p-12 shadow-xl text-center space-y-8 relative overflow-hidden transition-colors">
         
         {!isAlertTriggered ? (
           <div className="space-y-6">
@@ -111,10 +111,10 @@ export default function Emergency() {
             </div>
 
             <div className="space-y-1">
-              <p className="text-xs font-bold text-slate-700">
+              <p className="text-xs font-bold text-slate-700 dark:text-slate-200">
                 Press and hold for emergency assistance
               </p>
-              <p className="text-[11px] text-slate-400">
+              <p className="text-[11px] text-slate-400 dark:text-slate-400">
                 Protected against single-click accidental triggers.
               </p>
             </div>
@@ -146,49 +146,49 @@ export default function Emergency() {
 
             {/* Vitals Telemetry Summary */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                 <div className="text-[10px] font-bold text-slate-400 uppercase flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-rose-500" /> Location
                 </div>
-                <div className="text-sm font-black text-slate-900 mt-1">
+                <div className="text-sm font-black text-slate-900 dark:text-white mt-1">
                   Home — Living Room
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                 <div className="text-[10px] font-bold text-slate-400 uppercase flex items-center gap-1.5">
                   <Heart className="w-3.5 h-3.5 text-rose-500" /> Heart Rate
                 </div>
-                <div className="text-sm font-black text-rose-600 mt-1">
+                <div className="text-sm font-black text-rose-600 dark:text-rose-400 mt-1">
                   126 BPM (Spike)
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
                 <div className="text-[10px] font-bold text-slate-400 uppercase flex items-center gap-1.5">
                   <Activity className="w-3.5 h-3.5 text-rose-500" /> SpO₂ Saturation
                 </div>
-                <div className="text-sm font-black text-rose-600 mt-1">
+                <div className="text-sm font-black text-rose-600 dark:text-rose-400 mt-1">
                   89% (Critical Low)
                 </div>
               </div>
             </div>
 
             {/* Notification Confirmation List */}
-            <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-2 text-xs font-semibold text-emerald-950">
-              <div className="font-extrabold uppercase text-[10px] text-emerald-800 tracking-wider">
+            <div className="p-5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900/60 space-y-2 text-xs font-semibold text-emerald-950 dark:text-emerald-200">
+              <div className="font-extrabold uppercase text-[10px] text-emerald-800 dark:text-emerald-300 tracking-wider">
                 Confirmed Receiver Dispatches:
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>✓ Daughter (Priyanka Kumar) — High priority SMS & Voice Call</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>✓ Primary Care Physician (Dr. Ananya Sharma) — Live Telemetry Transmission</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>✓ Emergency Response Hotline (108) — Location Coordinates Sent</span>
               </div>
             </div>
@@ -197,9 +197,9 @@ export default function Emergency() {
             <div className="text-center pt-2">
               <button
                 onClick={cancelAlert}
-                className="px-6 py-3 rounded-2xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-extrabold text-xs transition-all shadow-md flex items-center justify-center gap-2 mx-auto"
+                className="px-6 py-3 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-extrabold text-xs transition-all shadow-md flex items-center justify-center gap-2 mx-auto"
               >
-                <XCircle className="w-4 h-4 text-slate-600" />
+                <XCircle className="w-4 h-4 text-slate-600 dark:text-slate-400" />
                 <span>Cancel Alert</span>
               </button>
             </div>

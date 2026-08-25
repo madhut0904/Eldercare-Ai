@@ -21,20 +21,20 @@ export default function Dashboard() {
       className="p-4 md:p-8 max-w-7xl mx-auto space-y-8"
     >
       {/* Welcome Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/80 card-shadow">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 card-shadow transition-colors">
         <div>
-          <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900">
+          <h1 className="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">
             Good Evening, Ramesh 👋
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1">
+          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
             Here's your health overview for today.
           </p>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="px-3.5 py-2 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center gap-2">
+          <div className="px-3.5 py-2 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 live-dot" />
-            <span className="text-xs font-bold text-emerald-800">Sensors Active (92% Batt)</span>
+            <span className="text-xs font-bold text-emerald-800 dark:text-emerald-300">Sensors Active (92% Batt)</span>
           </div>
         </div>
       </div>
